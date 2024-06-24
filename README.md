@@ -1,2 +1,13 @@
 # MapleStory2-Translator
-Maplestory2's translation tool. This program combines the xml to be translated and the xml to be used for translation. (2 xml files -> 1 xml output) Written as a simple script.
+
+This program fits the xml file to be used for translation into the original xml file.
+Inputs are made according to the original xml file,
+so items that are not in the translation xml file are output with the contents in the original xml file.
+If some items do not exist, [null] is output.
+
+The output file may be used as it is, but modification is recommended.
+And, There is a risk that xml is broken when some html-like content comes out, so modified code is inserted.
+
+How to use
+
+cscript.exe ms2xmlconvert.js > output.txt
