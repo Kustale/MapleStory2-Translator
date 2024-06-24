@@ -13,14 +13,17 @@ How to use
 
 cscript.exe ms2xmlconvert.js > output.txt
 
+Caution: Some parts of the output xml may not be displayed properly depending on the language settings of your computer.
+(xml syntax comes out normally, but some content appears as ? or is omitted)
+
 Rev 2
 
 Auto-attributes create function
 
 *********************************************************/
 
-var source1file = "C:/Users/Kustale/Documents/works/string/kr/dungeonmissionname.xml"; // original xml file
-var source2file = "B:/ms2dataarchive/Xml/string/kr/dungeonmissionname.xml"; // xml file to use for translation
+var source1file = "C:/blahblah/file-to-translate.xml"; // original xml file
+var source2file = "D:/yeah/Files-to-use-for-translation"; // xml file to use for translation
 
 var node_name = "key"; // data title
 var node_idkeyword = "id"; // Name starting with id (number or code)
