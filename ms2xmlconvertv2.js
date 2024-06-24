@@ -22,10 +22,10 @@ Auto-attributes create function
 
 *********************************************************/
 
-var source1file = "C:/blahblah/file-to-translate.xml"; // original xml file
-var source2file = "D:/yeah/Files-to-use-for-translation"; // xml file to use for translation
+var source1file = "C:/blahblah/xml-to-translate.xml"; // original xml file
+var source2file = "D:/yeah/xml-to-use-for-translation.xml"; // xml file to use for translation
 
-var node_name = "key"; // data title
+var node_name = "key"; // data title (The name of the tag starting with < following <ms2>.)
 var node_idkeyword = "id"; // Name starting with id (number or code)
 var node_idkeyword2 = ""; // Name starting with second (number or code) If not used, this field is left blank.
 var attrlist = new Array(); // ^_^
