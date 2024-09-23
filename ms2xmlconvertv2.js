@@ -26,8 +26,8 @@ Added is_idkey0
 
 *********************************************************/
 
-var source1file = "C:/Users/Kustale/Documents/works/string/en/popupmenu.xml"; // original xml file
-var source2file = "C:/Users/Kustale/Documents/works/string/cn/popupmenu.xml"; // xml file to use for translation
+var source1file = "C:/blahblah/xml-to-translate.xml"; // original xml file
+var source2file = "D:/yeah/xml-to-use-for-translation.xml"; // xml file to use for translation
 
 var node_name = "key"; // data title (The name of the tag starting with < following <ms2>.)
 var node_idkeyword = "id"; // Name starting with id (number or code)
