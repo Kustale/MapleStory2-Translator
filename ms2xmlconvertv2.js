@@ -20,16 +20,21 @@ Rev 2
 
 Auto-attributes create function
 
+Rev 3
+
+Added is_idkey0
+
 *********************************************************/
 
-var source1file = "C:/blahblah/xml-to-translate.xml"; // original xml file
-var source2file = "D:/yeah/xml-to-use-for-translation.xml"; // xml file to use for translation
+var source1file = "C:/Users/Kustale/Documents/works/string/en/popupmenu.xml"; // original xml file
+var source2file = "C:/Users/Kustale/Documents/works/string/cn/popupmenu.xml"; // xml file to use for translation
 
 var node_name = "key"; // data title (The name of the tag starting with < following <ms2>.)
 var node_idkeyword = "id"; // Name starting with id (number or code)
 var node_idkeyword2 = ""; // Name starting with second (number or code) If not used, this field is left blank.
 var attrlist = new Array(); // ^_^
 var attrlist_ign = new Array("locale"); // each data name(s) for original datas : do not put id. This is duplicate. If not used, just put "" in (). If there is no content in (), an error occurs.
+var is_idkey0 = false; //Whether there is 0 in front of id: If some items do not apply, change the value.
 
 /////////////////////////////////////////////////////////// DO NOT TOUCH T_T
 
@@ -87,14 +92,13 @@ for(var i = 0; i < d1.length; i = i + 1){
 		}
 	}
 
-	 //Fix : Removes the number 0 at the beginning of the ID key content. (This is different between domestic client xml and global client xml.)
 	for(var j = 0; j < attrlist.length; j = j + 1){
 		nd1[j] = new attrcreate(attrlist[j], ((d1.item(i).getAttribute(attrlist[j]) != null) ? d1.item(i).getAttribute(attrlist[j]) : "[null]"));
 		
 		if(node_idkeyword2 != ""){
-			var d2 = xml2.selectSingleNode("ms2/" + node_name + "[@" + node_idkeyword + "='" + d1.item(i).getAttribute(node_idkeyword).replace(/^0+/, '') + "'][@" + node_idkeyword2 + "='" + d1.item(i).getAttribute(node_idkeyword2).replace(/^0+/, '') + "']");
+			var d2 = xml2.selectSingleNode("ms2/" + node_name + "[@" + node_idkeyword + "='" + (is_idkey0 == true ? d1.item(i).getAttribute(node_idkeyword).replace(/^0+/, '') : d1.item(i).getAttribute(node_idkeyword)) + "'][@" + node_idkeyword2 + "='" + (is_idkey0 == true ? d1.item(i).getAttribute(node_idkeyword2).replace(/^0+/, '') : d1.item(i).getAttribute(node_idkeyword2)) + "']");
 		}else{
-			var d2 = xml2.selectSingleNode("ms2/" + node_name + "[@" + node_idkeyword + "='" + d1.item(i).getAttribute(node_idkeyword).replace(/^0+/, '') + "']");
+			var d2 = xml2.selectSingleNode("ms2/" + node_name + "[@" + node_idkeyword + "='" + (is_idkey0 == true ? d1.item(i).getAttribute(node_idkeyword).replace(/^0+/, '') : d1.item(i).getAttribute(node_idkeyword)) + "']");
 		}
 		
 		for(var k = 0; k < attrlist_ign.length; k = k + 1){
